@@ -19,6 +19,7 @@ max_valid = 200
 #         del data[index]
 
 ########### This method below only works on ordered lists. #####################
+# Below is the loop for deleting low values in an ordered list.
 stop = 0
 for index, value in enumerate(data):
     if value >= min_valid:
@@ -27,4 +28,16 @@ for index, value in enumerate(data):
 
 print(stop)  # for debugging.
 del data[:stop]
+print(data)
+#################### For the high values in an ordered list. #####################
+start = 0
+for index in range(len(data)- 1, -1, -1):
+        if data[index] <= max_valid:
+                start = index + 1
+                # we have the index of the last item to keep.
+                # Set 'start' to the position of the first
+                # item to delete, which is 1 after index.
+                break
+del data[start:]
+print(start) # for debugging
 print(data)
